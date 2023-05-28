@@ -27,6 +27,11 @@ void main() {
       r = await sslChecker('example');
       expect(r.valid, false);
       expect(r.daysRemaining, -1);
+
+      // You can not pass URL, must be HOSTNAME!!
+      r = await sslChecker('https://www.google.com');
+      expect(r.valid, false);
+      expect(r.daysRemaining, -1);
     });
   });
 }
